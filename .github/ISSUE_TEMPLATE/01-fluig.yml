@@ -2,10 +2,7 @@ name: "🗂️ Chamado do Fluig"
 description: "Registre uma demanda originada em chamado do TOTVS Fluig."
 title: "Fluig: "
 labels: ["origem:fluig", "needs-triage"]
-# Requer Issue Types configurados na organização. Remova esta linha se der erro.
-type: "Task"
-# Formato: OWNER/NUMERO_DO_PROJECT. Ajuste para o número real do seu Project.
-projects: ["schwarz/1"]
+projects: ["Schwarz-DEV/1"]
 
 body:
   # ==========================================================
