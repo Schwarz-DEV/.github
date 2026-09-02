@@ -42,14 +42,6 @@ body:
     validations:
       required: true
 
-  - type: textarea
-    id: evidencias
-    attributes:
-      label: Evidências
-      description: "Prints, mensagens, IDs de registro, logs, arquivos anexos do chamado."
-    validations:
-      required: false
-
   - type: markdown
     attributes:
       value: |
