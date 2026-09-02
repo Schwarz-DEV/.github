@@ -1,13 +1,10 @@
 name: "🗂️ Chamado do Fluig"
 description: "Registre uma demanda originada em chamado do TOTVS Fluig."
 title: "Fluig: "
-labels: ["origem:fluig", "needs-triage"]
+labels: ["fluig", "needs-triage"]
 projects: ["Schwarz-DEV/1"]
 
 body:
-  # ==========================================================
-  # ETAPA 1 — INTAKE  (preenchido por quem abre a issue)
-  # ==========================================================
   - type: markdown
     attributes:
       value: |
@@ -22,8 +19,7 @@ body:
     attributes:
       label: ID da instância do processo
       description: >
-        Somente o número que aparece no fim da URL do chamado
-        (`...detailsProcessInstanceID=`). O link completo é montado abaixo.
+        Somente o número da solicitação
       placeholder: "48213"
     validations:
       required: true
@@ -80,9 +76,6 @@ body:
     validations:
       required: false
 
-  # ==========================================================
-  # ETAPA 2 — TRIAGEM  (preenchido por você, em lote)
-  # ==========================================================
   - type: markdown
     attributes:
       value: |
@@ -148,9 +141,6 @@ body:
     validations:
       required: false
 
-  # ==========================================================
-  # ETAPA 3 — REFINAMENTO  (portão da Definition of Ready)
-  # ==========================================================
   - type: markdown
     attributes:
       value: |
