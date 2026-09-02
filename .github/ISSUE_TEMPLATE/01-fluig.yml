@@ -1,4 +1,4 @@
-name: "🗂️ Chamado do Fluig"
+name: "Chamado do Fluig"
 description: "Registre uma demanda originada em chamado do TOTVS Fluig."
 title: "Fluig: "
 labels: ["fluig", "needs-triage"]
@@ -10,10 +10,6 @@ body:
       value: |
         ## 1 · Intake
 
-        Preencha só o que está marcado como obrigatório. O resto é preenchido
-        por mim na **triagem** e no **refinamento** — não trave a abertura por
-        falta de informação.
-
   - type: input
     id: fluig-id
     attributes:
@@ -21,17 +17,6 @@ body:
       description: >
         Somente o número da solicitação
       placeholder: "48213"
-    validations:
-      required: true
-
-  - type: input
-    id: fluig-link
-    attributes:
-      label: Link do chamado
-      description: >
-        Cole a URL completa. Base:
-        `http://192.168.1.238:8080/portal/p/schwarz/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=`
-      placeholder: "http://192.168.1.238:8080/portal/p/schwarz/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=48213"
     validations:
       required: true
 
@@ -56,17 +41,6 @@ body:
         precisam conferir manualmente em planilha depois de emitir.
     validations:
       required: true
-
-  - type: input
-    id: prazo-externo
-    attributes:
-      label: Existe prazo externo?
-      description: >
-        Só preencha se houver obrigação real (fiscal, contratual, fechamento
-        de mês, auditoria). "O quanto antes" não é prazo.
-      placeholder: "Fechamento fiscal — 05/10/2026"
-    validations:
-      required: false
 
   - type: textarea
     id: evidencias
