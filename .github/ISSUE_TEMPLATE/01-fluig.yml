@@ -5,18 +5,11 @@ labels: ["fluig", "needs-triage"]
 projects: ["Schwarz-DEV/1"]
 
 body:
-  - type: markdown
-    attributes:
-      value: |
-        ## 1 · Intake
-
   - type: input
     id: fluig-id
     attributes:
-      label: ID da instância do processo
-      description: >
-        Somente o número da solicitação
-      placeholder: "48213"
+      label: Número da Solicitação do Fluig
+      placeholder: "Número da Solicitação do Fluig"
     validations:
       required: true
 
@@ -25,7 +18,7 @@ body:
     attributes:
       label: Solicitante e área
       description: "Quem abriu o chamado e de qual setor."
-      placeholder: "Fulano de Tal — Faturamento"
+      placeholder: "Nome do solicitante — Setor"
     validations:
       required: true
 
@@ -42,151 +35,6 @@ body:
     validations:
       required: true
 
-  - type: markdown
-    attributes:
-      value: |
-        ---
-        ## 2 · Triagem
-        <sub>Não preencher na abertura. Editado depois, na fila de triagem.</sub>
-
-  - type: dropdown
-    id: sistema
-    attributes:
-      label: Sistema / módulo afetado
-      options:
-        - "— a definir na triagem —"
-        - "Portal interno"
-        - "Integração TOTVS"
-        - "Relatórios"
-        - "API"
-        - "Infraestrutura / banco"
-        - "Outro (detalhar nas notas)"
-      default: 0
-    validations:
-      required: false
-
-  - type: dropdown
-    id: tipo-demanda
-    attributes:
-      label: Tipo de demanda
-      options:
-        - "— a definir na triagem —"
-        - "Bug"
-        - "Melhoria em recurso existente"
-        - "Novo recurso"
-        - "Dúvida / suporte"
-        - "Dívida técnica"
-        - "Spike (investigação)"
-      default: 0
-    validations:
-      required: false
-
-  - type: dropdown
-    id: classe-servico
-    attributes:
-      label: Classe de serviço
-      description: >
-        Substitui "prioridade 1–5". **Expedite** tem limite de 1 item por vez.
-      options:
-        - "— a definir na triagem —"
-        - "Expedite — produção parada, para tudo"
-        - "Data fixa — obrigação com prazo externo"
-        - "Padrão — fila por valor"
-        - "Intangível — dívida técnica, sem prazo"
-      default: 0
-    validations:
-      required: false
-
-  - type: input
-    id: aprovador
-    attributes:
-      label: Quem valida a entrega
-      description: >
-        Quem assina embaixo na homologação. Pode não ser o solicitante.
-      placeholder: "Gestor de Faturamento"
-    validations:
-      required: false
-
-  - type: markdown
-    attributes:
-      value: |
-        ---
-        ## 3 · Refinamento
-        <sub>Resultado da conversa com o solicitante. Esta seção é o portão
-        da Definition of Ready.</sub>
-
-  - type: textarea
-    id: problema
-    attributes:
-      label: Problema real (a dor)
-      description: >
-        A dor, não o pedido. Formato Job Story:
-        *"Quando [situação], preciso [motivação], para [resultado]."*
-      placeholder: |
-        Quando emito o relatório de X no fechamento, preciso que Y já venha
-        consolidado, para não conferir 200 linhas em planilha à mão.
-
-        Hoje custa ~3h por fechamento e já gerou 2 erros de lançamento.
-    validations:
-      required: false
-
-  - type: textarea
-    id: criterios-aceite
-    attributes:
-      label: Critérios de aceite
-      description: >
-        Verificáveis com sim/não, em Given/When/Then. Estes são os itens que
-        o aprovador vai testar na homologação.
-      placeholder: |
-        - [ ] **Dado** um período com lançamentos de Y
-              **quando** eu emitir o relatório X
-              **então** a coluna Y aparece consolidada por centro de custo
-
-        - [ ] **Dado** um período sem lançamentos de Y
-              **quando** eu emitir o relatório X
-              **então** a coluna Y aparece com zero, não em branco
-    validations:
-      required: false
-
-  - type: textarea
-    id: fora-escopo
-    attributes:
-      label: Fora de escopo
-      description: >
-        O campo mais importante do formulário. Registre aqui o que foi
-        discutido e ficou de fora. É o que te protege depois, sem conversa
-        desagradável.
-      placeholder: |
-        - Exportação para Excel (vira issue própria se pedirem)
-        - Alterar o layout do relatório
-        - Retroagir dados anteriores a 2025
-    validations:
-      required: false
-
-  - type: textarea
-    id: impacto
-    attributes:
-      label: Impacto se não for feito
-      description: "Horas perdidas, risco, retrabalho, exposição fiscal."
-    validations:
-      required: false
-
-  - type: dropdown
-    id: tamanho
-    attributes:
-      label: Tamanho / appetite
-      description: >
-        Quanto tempo *vale a pena* gastar. O escopo se ajusta para caber,
-        não o contrário.
-      options:
-        - "— a definir no refinamento —"
-        - "P — até 1 dia"
-        - "M — até 3 dias"
-        - "G — até 2 semanas (quebrar em sub-issues)"
-        - "Não estimável — abrir Spike"
-      default: 0
-    validations:
-      required: false
 
   - type: textarea
     id: notas-tecnicas
@@ -197,35 +45,3 @@ body:
         arquitetural relevante, registre um ADR em `docs/adr/` e linke aqui.
     validations:
       required: false
-
-  - type: checkboxes
-    id: dor
-    attributes:
-      label: Definition of Ready
-      description: >
-        Só marque tudo quando for verdade. Item sem DoR completa não sai de
-        **Refinamento** para **Pronto**.
-      options:
-        - label: "Problema descrito como dor, não como solução"
-          required: false
-        - label: "Solicitante e aprovador identificados"
-          required: false
-        - label: "Critérios de aceite verificáveis (sim/não)"
-          required: false
-        - label: "Fora de escopo declarado explicitamente"
-          required: false
-        - label: "Impacto de não fazer está claro"
-          required: false
-        - label: "Dependências, acessos e ambientes resolvidos"
-          required: false
-        - label: "Tamanho definido, ou Spike aberto"
-          required: false
-        - label: "Nenhuma pergunta aberta pendente com o solicitante"
-          required: false
-
-  - type: markdown
-    attributes:
-      value: |
-        ---
-        <sub>A **Definition of Done** não fica aqui — fica no
-        `PULL_REQUEST_TEMPLATE.md`, que é onde ela é de fato conferida.</sub>
