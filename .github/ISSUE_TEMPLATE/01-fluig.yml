@@ -1,24 +1,16 @@
 name: "Chamado do Fluig"
 description: "Registre uma demanda originada em chamado do TOTVS Fluig."
-title: "Fluig: "
+title: "Fluig 12345: "
 labels: ["fluig", "needs-triage"]
 projects: ["Schwarz-DEV/1"]
 
 body:
   - type: input
-    id: fluig-id
-    attributes:
-      label: Número da Solicitação do Fluig
-      placeholder: "Número da Solicitação do Fluig"
-    validations:
-      required: true
-
-  - type: input
     id: solicitante
     attributes:
       label: Solicitante e área
-      description: "Quem abriu o chamado e de qual setor."
-      placeholder: "Nome do solicitante — Setor"
+      description: "Quem abriu o chamado"
+      placeholder: "Nome do solicitante"
     validations:
       required: true
 
@@ -27,21 +19,9 @@ body:
     attributes:
       label: Resumo da solicitação
       description: >
-        O que foi pedido no chamado, nas palavras do solicitante. Não traduza
-        para solução técnica ainda — isso é feito no refinamento.
+        O que foi pedido no chamado, nas palavras do solicitante.
       placeholder: |
         O setor pediu que o relatório de X passe a considerar Y, porque hoje
         precisam conferir manualmente em planilha depois de emitir.
     validations:
       required: true
-
-
-  - type: textarea
-    id: notas-tecnicas
-    attributes:
-      label: Notas técnicas e decisões
-      description: >
-        Abordagem, riscos, migrations, dependências. Se houver decisão
-        arquitetural relevante, registre um ADR em `docs/adr/` e linke aqui.
-    validations:
-      required: false
