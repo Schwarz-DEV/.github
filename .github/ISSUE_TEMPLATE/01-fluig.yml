@@ -9,7 +9,6 @@ body:
     id: solicitante
     attributes:
       label: Solicitante e área
-      description: "Quem abriu o chamado"
       placeholder: "Nome do solicitante"
     validations:
       required: true
@@ -18,8 +17,6 @@ body:
     id: resumo
     attributes:
       label: Resumo da solicitação
-      description: >
-        O que foi pedido no chamado, nas palavras do solicitante.
       placeholder: |
         O setor pediu que o relatório de X passe a considerar Y, porque hoje
         precisam conferir manualmente em planilha depois de emitir.
