@@ -1,0 +1,19 @@
+name: "Issue geral"
+description: "Registre uma demanda, melhoria ou problema."
+title: ""
+projects: ["Schwarz-DEV/1"]
+
+body:
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição
+      placeholder: "Descreva o que precisa ser feito ou o problema encontrado."
+    validations:
+      required: true
+
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Critérios de aceite
+      placeholder: "Como saberemos que está resolvido?"
