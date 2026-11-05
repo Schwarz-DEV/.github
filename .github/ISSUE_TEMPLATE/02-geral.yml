@@ -1,6 +1,5 @@
 name: "Issue geral"
 description: "Registre uma demanda, melhoria ou problema."
-title: ""
 projects: ["Schwarz-DEV/1"]
 
 body:
