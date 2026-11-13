@@ -10,9 +10,3 @@ body:
       placeholder: "Descreva o que precisa ser feito ou o problema encontrado."
     validations:
       required: true
-
-  - type: textarea
-    id: criterios
-    attributes:
-      label: Critérios de aceite
-      placeholder: "Como saberemos que está resolvido?"
